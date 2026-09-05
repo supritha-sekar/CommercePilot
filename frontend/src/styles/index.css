@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: #ffffff;
+  color: #14171f;
+}
+
+::selection {
+  background: #e6f4ee;
+  color: #0b4e38;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Reasoning trail timeline */
+.trail-item {
+  position: relative;
+  padding-left: 1.25rem;
+  border-left: 1px solid #e5e7eb;
+}
+.trail-item:last-child {
+  border-left-color: transparent;
+}
+.trail-item::before {
+  content: "";
+  position: absolute;
+  left: -3.5px;
+  top: 0.4rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #0f6b4c;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise-in {
+  animation: rise 260ms ease-out both;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .rise-in {
+    animation: none;
+  }
+}
